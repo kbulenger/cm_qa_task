@@ -79,7 +79,7 @@ export class ProductPage extends BasePage {
     await expect(this.productCardTitle.first()).toBeVisible();
   }
 
-  async filterByPriceRange() {
+  async applyFilters() {
     if ((await this.filterCheckbox.count()) > 0) {
       await this.filterCheckbox.check().catch(() => undefined);
       return;

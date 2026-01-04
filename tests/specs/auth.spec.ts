@@ -54,7 +54,7 @@ test.describe('Auth Scenarios', () => {
     await productPage.searchProduct('Pliers');
     const beforeCount = await page.locator('.card').count();
     expect(typeof beforeCount).toBe('number');
-    await productPage.filterByPriceRange();
+    await productPage.applyFilters();
     const afterCount = await page.locator('.card').count();
     expect(afterCount).toBeGreaterThanOrEqual(0);
     await productPage.selectFirstProduct();

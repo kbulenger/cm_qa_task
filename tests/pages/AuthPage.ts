@@ -39,7 +39,7 @@ export class AuthPage extends BasePage {
     this.loginButton = page.getByTestId('login-submit');
     this.navMenu = page.getByTestId('nav-menu');
     this.signOutLink = page.getByTestId('nav-sign-out');
-    this.emailError = page.locator('[data-test="email-error"]');
+    this.emailError = page.getByTestId('email-error');
   }
 
   async register(user: any) {
@@ -68,42 +68,10 @@ export class AuthPage extends BasePage {
     await this.loginButton.click();
     await expect(this.signInLink).toBeHidden({ timeout: 10000 });
   }
-
-  async verifyLoggedIn(firstName: string) {
-    await expect(this.navMenu).toContainText(firstName);
-  }
-
+ 
   async logout() {
     await this.openMobileMenuIfNeeded();
-    try {
-      if (!(await this.navMenu.isVisible())) {
-        if ((await this.navToggle.count()) > 0) {
-          await this.navToggle.click().catch(() => undefined);
-          await this.page.waitForTimeout(200);
-        }
-      }
-    } catch {}
-    await this.navMenu.waitFor({ state: 'visible', timeout: 5000 }).catch(() => undefined);
-    let clicked = false;
-    for (let attempt = 0; attempt < 3; attempt++) {
-      try {
-        await this.navMenu.click({ timeout: 2000 });
-        clicked = true;
-        break;
-      } catch {
-        try {
-          await this.openMobileMenuIfNeeded();
-        } catch {}
-        try {
-          if ((await this.navToggle.count()) > 0) await this.navToggle.click().catch(() => undefined);
-        } catch {}
-        await this.page.waitForTimeout(200);
-      }
-    }
-    if (!clicked) {
-      await this.navMenu.click().catch(() => undefined);
-    }
-    await this.signOutLink.waitFor({ state: 'visible', timeout: 5000 }).catch(() => undefined);
+    await this.navMenu.click();
     await this.signOutLink.click();
   }
 }

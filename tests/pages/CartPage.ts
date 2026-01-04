@@ -34,9 +34,10 @@ export class CartPage extends BasePage {
   }
 
   async increaseQuantity(quantity = 2) {
-    await this.productQuantityInput.fill(String(quantity));
-    await this.productQuantityInput.press('Enter');
-    await expect(this.productQuantityInput).toHaveValue(String(quantity)); 
+    const input = this.productQuantityInput.first();
+    await input.fill(String(quantity));
+    await input.press('Enter');
+    await expect(input).toHaveValue(String(quantity)); 
   }
 
   async getTotal(): Promise<number> {

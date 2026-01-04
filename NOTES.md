@@ -1,6 +1,6 @@
 # Developer Notes & Architecture Decisions
 
-This document outlines the architectural choices, assumptions, and known limitations of the QA suite. It serves as a guide to understanding how the tests handle responsive design, authentication, and data management.
+This document outlines the architectural choices, assumptions and known limitations of the QA suite. It serves as a guide to understanding how the tests handle responsive design, authentication, and data management.
 
 ## Architecture & Key Choices
 
