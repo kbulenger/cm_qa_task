@@ -8,8 +8,8 @@ Test automation suite for tool shop application using Playwright Test with Page 
 - NPM or Yarn
 - `.env` file with test credentials:
   ```
-  TEST_USER_EMAIL=testuser@example.com
-  TEST_USER_PASSWORD=TestPassword123
+  TEST_USER_EMAIL=admin@practicesoftwaretesting.com
+  TEST_USER_PASSWORD=welcome01
   ```
 
 ## Installation
