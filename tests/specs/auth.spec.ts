@@ -24,12 +24,6 @@ test.describe('Auth Scenarios', () => {
     await expect(page).toHaveURL(/.*\/auth\/login/);
   });
 
-  test('User remains logged in after page reload', async ({ loggedInPage }) => {
-    await loggedInPage.page.reload();
-    await loggedInPage.openMobileMenuIfNeeded();
-    await expect(loggedInPage.signInLink).toBeHidden();
-  });
-
   test('Validation when missing email on registration', async ({ page }) => {
     const invalidUser = { ...userData, email: '' };
     await authPage.register(invalidUser);
@@ -38,6 +32,12 @@ test.describe('Auth Scenarios', () => {
     await expect(authPage.emailError).toContainText('Email is required');
   });
   
+  test('User remains logged in after page reload', async ({ loggedInPage }) => {
+    await loggedInPage.page.reload();
+    await loggedInPage.openMobileMenuIfNeeded();
+    await expect(loggedInPage.signInLink).toBeHidden();
+  });
+
   test('Logout and return to signed-out state', async ({ loggedInPage }) => {
     await loggedInPage.logout();
     await loggedInPage.openMobileMenuIfNeeded();
