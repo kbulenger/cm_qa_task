@@ -1,0 +1,17 @@
+{
+  "name": "cm-qa-task",
+  "version": "1.0.0",
+  "description": "- Node.js (v16+)\r - NPM",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:mobile": "playwright test --project=Mobile Chrome"
+  },
+  "keywords": [],
+  "author": "Krzysztof Bulenger",
+  "license": "ISC"
+}
