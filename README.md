@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Playwright Automation - Tool Shop
 
 Test automation suite for tool shop application using Playwright Test with Page Object pattern.
@@ -91,6 +91,4 @@ NOTES.md              # Design decisions and known limitations
 - **Robust Waits**: Retry logic and mobile-aware element visibility checks
 - **HTML & Allure Reporters**: Detailed test results with screenshots, videos, and traces
 - **Test Fixtures**: Custom `loggedInPage` fixture for authenticated flow testing
-=======
-# krzysiekbulenger
->>>>>>> 317bdcd6d26f009c2ed9b87bf40c0827aa80e612
+
